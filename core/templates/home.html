@@ -1,0 +1,33 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12 mb-3">
+       <h4 class="text-center"> Welcome {{ user.username }} </h4>
+    </div>
+
+    <div>
+        <h2>Profiles</h2>
+        {% for el in profiles %}
+            <div class="text-center">
+                <h3>{{ el.name }}</h3>
+                <p>{{ el.email }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-sm-12 mt-2 text-center">
+      <button class="btn btn-danger">
+        <a href="{% url 'logout' %}">Logout</a>
+      </button>
+    </div>
+
+    <div class="col-sm-12 mt-2 text-center edit">
+      <button class="btn btn-danger">
+        <a href="{% url 'edit' %}">Edit Profile</a>
+      </button>
+    </div>
+</div>
+
+{% endblock %}

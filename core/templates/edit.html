@@ -1,0 +1,14 @@
+<!-- templates/edit.html -->
+{% extends 'base.html' %}
+{% block title %} Edit {% endblock %}
+{% block content %}
+<h3>Enter your name or email</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name }}<br>
+        {{ form.email }}<br>
+        <button type="submit" class="btn btn-success">Edit</button>
+        <span>{{ error }}</span>
+    </form>
+
+{% endblock %}
